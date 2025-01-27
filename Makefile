@@ -6,7 +6,7 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/25 16:31:00 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/01/27 16:27:43 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fractol
 
 LIBFT_DR = ./libft
 
-FLAGS = -Wall -Wextra -Werror #-g3 #-fsanitize=address
+FLAGS = -g3 #-Wall -Wextra -Werror #-g3 #-fsanitize=address
 INCLUDES_DRS = -I./includes -I./libft/includes 
 CC = cc
 RM = rm -f
