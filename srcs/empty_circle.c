@@ -1,15 +1,24 @@
-
 #include <mlx.h>
 #include <math.h>
-#include "libft.h"
+#include <time.h> // For nanosleep
 
 #define WIDTH 800
-#define HEIGHT 800
-#define RADIUS 200
+#define HEIGHT 600
 #define CENTER_X WIDTH / 2
 #define CENTER_Y HEIGHT / 2
-#define BORDER 300
-#define COLOR 0x00FF0000 // Red color in ARGB format
+#define RADIUS 200
+#define COLOR 0xFFFFFF // Green color
+
+
+void sleep_nanoseconds(long nanoseconds)
+{
+    struct timespec req;
+    req.tv_sec = 0;          // Seconds
+    req.tv_nsec = nanoseconds; // Nanoseconds (1 second = 1,000,000,000 nanoseconds)
+
+    // Call nanosleep
+    nanosleep(&req, NULL);
+}
 
 void draw_circle(void *mlx, void *win, void *img, int center_x, int center_y, int radius, int color)
 {
@@ -27,31 +36,22 @@ void draw_circle(void *mlx, void *win, void *img, int center_x, int center_y, in
         if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) // Ensure the pixel is within bounds
         {
             int pixel_index = y * size_line + x * (bpp / 8);
-            *(int *)(data + pixel_index) = color; // Set the pixel color
+            *(int *)(data + pixel_index) = color + ((int )angle + 1) * 1000; // Set the pixel color
         }
-
         angle += angle_increment; // Increment the angle
+        mlx_put_image_to_window(mlx, win, img, 0, 0);
+        sleep_nanoseconds(1000);
     }
-}
-
-void circle_fractol(void *mlx, void *win, void *img, int center_x, int center_y, int radius, int color)
-{
-  draw_circle(mlx, win, img, center_x, center_y, radius, color);
-  mlx_put_image_to_window(mlx, win, img, 0, 0);
-  if (radius < 1)
-    return ;
-  circle_fractol(mlx, win, img, center_x + radius , center_y + radius, radius / 2, color / 100);
-  circle_fractol(mlx, win, img, center_x - radius , center_y - radius, radius / 2, color + 100);
-  circle_fractol(mlx, win, img, center_x + radius , center_y - radius, radius / 2, color - 100);
-  circle_fractol(mlx, win, img, center_x - radius , center_y + radius, radius / 2, color * 100);
 }
 
 int main()
 {
     void *mlx = mlx_init();
-    void *win = mlx_new_window(mlx, WIDTH, HEIGHT, "Circle Example");
+    void *win = mlx_new_window(mlx, WIDTH, HEIGHT, "Empty Circle Example");
     void *img = mlx_new_image(mlx, WIDTH, HEIGHT);
-    circle_fractol(mlx, win, img, CENTER_X, CENTER_Y, RADIUS, COLOR);
+
+    draw_circle(mlx, win, img, CENTER_X, CENTER_Y, RADIUS, COLOR);
+
     // Display the image in the window
     mlx_put_image_to_window(mlx, win, img, 0, 0);
 
@@ -59,7 +59,4 @@ int main()
     mlx_loop(mlx);
 
     return 0;
-}   // Display the image in the window
-//
-//
-
+}
