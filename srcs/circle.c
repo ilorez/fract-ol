@@ -11,6 +11,8 @@
 #define BORDER 300
 #define COLOR 0x00FF0000 // Red color in ARGB format
 
+
+
 void draw_circle(void *mlx, void *win, void *img, int center_x, int center_y, int radius, int color)
 {
     int bpp, size_line, endian;
