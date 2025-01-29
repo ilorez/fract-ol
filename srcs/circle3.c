@@ -67,7 +67,7 @@ void circle_fractol(t_data *data, int center_x, int center_y, int radius, int co
   draw_circle(data, center_x, center_y, radius, color);
   //mlx_clear_window(data->mlx, data->win);
   //mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
-  if (radius < 1 * data->zoom / 2)
+  if (radius < 1 * data->zoom)
     return ;
   circle_fractol(data, center_x + radius, center_y + radius, radius / 2, color / 100);
   circle_fractol(data, center_x - radius, center_y - radius, radius / 2, color + 100);
@@ -88,9 +88,29 @@ int	key_hook(int keycode, t_data *data)
     }
     mlx_clear_window(data->mlx, data->win);
     ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
-    circle_fractol(data, CENTER_X, CENTER_Y, RADIUS * data->zoom, COLOR);
+    circle_fractol(data, CENTER_X - 100, CENTER_Y - 100, RADIUS * data->zoom, COLOR);
     mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
     return (0);
+}
+
+int handle_mouse_click(int button, int x, int y, t_data *data)
+{
+  t_cor center;
+  if (button == 4)
+        data->zoom *= 1.1;
+  if (button == 5)
+        data->zoom /= 1.1;
+  mlx_clear_window(data->mlx, data->win);
+  ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
+  circle_fractol(data, x + CENTER_X, y + CENTER_Y, RADIUS * data->zoom, COLOR);
+  mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
+  return (0);
+}
+
+int	destroy_event(t_data *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+  exit(0);
 }
 
 int main()
@@ -116,6 +136,9 @@ int main()
   mlx_put_image_to_window(data->mlx, data->win, img_data->img, 0, 0);
 
   mlx_hook(data->win, 2, 1L, key_hook, data);
+	mlx_hook(data->win, 17, 1L, destroy_event, data);
+
+  mlx_mouse_hook(data->win, handle_mouse_click, data);
   // Keep the window open
   mlx_loop(data->mlx);
   return 0;
