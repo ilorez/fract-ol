@@ -6,7 +6,7 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/28 18:16:47 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/01/29 16:30:49 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDES_DRS = -I./includes -I./libft/includes
 CC = cc
 RM = rm -f
 
-SRCS=  moving_obj.c
+SRCS=  circle3.c
 
 OBJS = $(addprefix $(BUILD_DR),$(SRCS:%.c=%.o))
 green = \033[32m

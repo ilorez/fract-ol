@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:19:11 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/29 14:42:33 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:05:25 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ int	key_hook(int keycode, t_data *data)
 {
   if (ft_strchr("wasd", keycode))
   {
-    mlx_clear_window(data->mlx, data->win);
+    //mlx_clear_window(data->mlx, data->win);
+    mlx_destroy_image(data->mlx, data->img);
     mlx_put_image_to_window(data->mlx, data->win, data->img, data->cor->x,data->cor->y);
     if (keycode == 'w' && data->cor->y > 10)
       (data->cor->y)-=10;
@@ -105,6 +106,8 @@ int main()
   data->cor = cor;
 
 
+
+  mlx_put_image_to_window(data->mlx, data->win, data->img, data->cor->x,data->cor->y);
   //mlx_key_hook(data->win, key_hook, data);
   mlx_hook(data->win, 2, 1L<<0, key_hook, data);
 	mlx_loop(data->mlx);
