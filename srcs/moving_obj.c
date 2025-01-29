@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:19:11 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/28 19:04:32 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:42:33 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int main()
   data->cor = cor;
 
 
-  mlx_key_hook(data->win, key_hook, data);
+  //mlx_key_hook(data->win, key_hook, data);
+  mlx_hook(data->win, 2, 1L<<0, key_hook, data);
 	mlx_loop(data->mlx);
 }
