@@ -19,8 +19,8 @@ typedef struct s_img_data {
 } t_img_data;
 
 typedef struct s_cor {
-    double x; // Changed to double
-    double y; // Changed to double
+    int x; // Changed to double
+    int y; // Changed to double
 } t_cor;
 
 typedef struct s_data {
