@@ -6,11 +6,12 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/30 15:24:39 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/01/30 15:37:00 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 vpath %.c srcs
+vpath %.c tests
 
 BUILD_DR = ./build/
 NAME = fractol
@@ -22,8 +23,7 @@ INCLUDES_DRS = -I./includes -I./libft/includes
 CC = cc
 RM = rm -f
 
-SRCS=  circle3.c
-
+SRCS=  fractol_circles_with_zoom_move.c
 OBJS = $(addprefix $(BUILD_DR),$(SRCS:%.c=%.o))
 green = \033[32m
 reset = \033[0m

@@ -68,7 +68,7 @@ void draw_circle(t_data *data, double center_x, double center_y, double radius, 
 
 void circle_fractol(t_data *data, double center_x, double center_y, double radius, int color) {
     draw_circle(data, center_x, center_y, radius, color);
-    if (radius < 1 * data->zoom)
+    if (radius < data->zoom)
         return;
     circle_fractol(data, center_x + radius, center_y + radius, radius / 2, color / 100);
     circle_fractol(data, center_x - radius, center_y - radius, radius / 2, color + 100);
