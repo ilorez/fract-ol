@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 18:58:10 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:14:57 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void draw_circle(t_data *data, double radius, int color) {
 
 t_bool ft_draw_fractol(t_data *data)
 {
-  draw_circle(data, 50, 0x00FF0000);
+  draw_circle(data, 50 * data->zoom, 0x00FF0000);
   mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
   return (true);
 }

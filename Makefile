@@ -6,12 +6,11 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/31 18:42:58 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/01/31 19:08:20 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 vpath %.c srcs
-vpath %.c tests
 
 BUILD_DR = ./build/
 NAME = fractol

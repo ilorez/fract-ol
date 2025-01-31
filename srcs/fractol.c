@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 19:01:14 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:13:44 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 		ft_handel_exit(data, ERR_UNKNOWN);
 	if (!ft_draw_fractol(data))
 		ft_handel_exit(data, ERR_UNKNOWN);
+  mlx_loop(data->mlx);
 	return (0);
 }
 
