@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/30 17:01:14 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 10:56:50 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef enum s_fractol
   F_MANDERBROT
 } t_fractol;
 
+
 typedef struct s_data {
     void *mlx;
     void *win;
@@ -40,6 +41,7 @@ typedef struct s_data {
     t_cor *center;
     t_img_data *img_data;
     t_cor *cor;
+    t_errno errno;
 } t_data;
 
 
@@ -61,8 +63,25 @@ t_data *fractol_init()
 
 int main(int ac, char **av)
 {
-  if (ac == 1)
+  t_fractol selected;
+  t_data *data;
+  if (ac < 2 || !av[1][0])
     ft_print_syntax_usage();
+  selected = ft_get_selected(av[1]); 
+  data = ft_init_data(data, selected);
+  if (!data)
+      ft_free_and_show_error(data);
+  if (!ft_create_mlx_window(data))
+      ft_free_and_show_error(data);
+  if (!ft_draw_fractol(data))
+      return (1);
+  // get params
+  // get check if first param contain valid fractol
+  // init data using the selected fractol
+
+
+
+
 
 
   return 0;
