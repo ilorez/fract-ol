@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:06:37 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 11:49:27 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:36:57 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 // includes
 //
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <stdint.h>
-# include <stddef.h>
+# include "ft_linked_lst.h"
+# include "ft_malloc.h"
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include "t_bool.h"
-# include "ft_linked_lst.h"
-# include "ft_malloc.h"
 # include "t_errno.h"
+# include <limits.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 // memory functions
 void		*ft_memset(void *b, int c, size_t len);
@@ -65,6 +65,8 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s1, char const *set);
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char		*ft_strupcase(char *str);
+char		*ft_strlowcase(char *str);
 
 // is functions
 int			ft_isalpha(int c);
