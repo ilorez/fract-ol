@@ -2,12 +2,12 @@
 #include <math.h>
 #include "libft.h"
 
-#define WIDTH 800
-#define HEIGHT 800
-#define RADIUS 200
+#define WIDTH 400
+#define HEIGHT 400
+#define RADIUS 100
 #define CENTER_X WIDTH / 2
 #define CENTER_Y HEIGHT / 2
-#define BORDER 300
+#define BORDER 150
 #define COLOR 0x00FF0000 // Red color in ARGB format
 
 typedef struct s_img_data {

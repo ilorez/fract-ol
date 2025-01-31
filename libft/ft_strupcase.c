@@ -6,9 +6,11 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 15:04:30 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 16:33:55 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:26:52 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strupcase(char *str)
 {

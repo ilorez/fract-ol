@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:06:37 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 16:36:57 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:26:08 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 # define LIBFT_H
 
 // includes
-//
-# include "ft_linked_lst.h"
-# include "ft_malloc.h"
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "t_bool.h"
-# include "t_errno.h"
 # include <limits.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+// local libs
+# include "t_bool.h"
+# include "ft_linked_lst.h"
+# include "ft_printf.h"
+# include "t_errno.h"
+# include "ft_malloc.h"
+# include "get_next_line.h"
 
 // memory functions
 void		*ft_memset(void *b, int c, size_t len);
