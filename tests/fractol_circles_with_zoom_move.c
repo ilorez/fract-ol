@@ -116,7 +116,7 @@ int handle_mouse_click(int button, int x, int y, t_data *data) {
       data->zoom /= 1.1;
     }
 
-    mlx_clear_window(data->mlx, data->win);
+   // mlx_clear_window(data->mlx, data->win);
     ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
     circle_fractol(data, data->center->x, data->center->y, RADIUS * data->zoom, COLOR);
     mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);

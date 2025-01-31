@@ -6,7 +6,7 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/30 15:37:00 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/01/31 18:42:58 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,12 @@ NAME = fractol
 
 LIBFT_DR = ./libft
 
-FLAGS = -g3 #-Wall -Wextra -Werror #-g3 #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 INCLUDES_DRS = -I./includes -I./libft/includes 
 CC = cc
 RM = rm -f
 
-SRCS=  fractol_circles_with_zoom_move.c
+SRCS= fractol.c init_data.c on_errors.c print_syntax_usage.c draw_fractol.c create_window.c events.c utils.c rewrite_mlx.c 
 OBJS = $(addprefix $(BUILD_DR),$(SRCS:%.c=%.o))
 green = \033[32m
 reset = \033[0m

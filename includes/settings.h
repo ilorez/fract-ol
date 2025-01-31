@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings.c                                         :+:      :+:    :+:   */
+/*   settings.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 16:08:26 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:53:08 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define SETTINGS_H
 
 #define WIDTH 500
-#define HIEGHT 500
+#define HEIGHT 500
 #define ZOOM_INCREMENT 500
 
 // keys enums
@@ -28,10 +28,6 @@ typedef enum s_moves
   ZOOM_IN, 
   ZOOM_OUT
 } t_moves;
-
-
-
-
 
 #endif
 

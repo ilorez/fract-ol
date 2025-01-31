@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 10:44:36 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 11:10:14 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 18:13:49 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum s_errno
 	ERR_INVALID_ARG,
 	ERR_EMPTY_ARG,
 	ERR_MALLOC_FAIL,
+  ERR_MLX_CONNECTION_FIELED,
 	ERR_UNKNOWN,
 	ERR_COUNT
 }			t_errno;

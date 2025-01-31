@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 17:22:14 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:01:14 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(int ac, char **av)
 	t_fractol	selected;
 	t_data		*data;
 
+  data = NULL;
 	if (ac < 2 || !av[1][0])
 		ft_print_syntax_usage(av[0]);
 	selected = ft_get_selected(av[1]);
@@ -29,15 +30,14 @@ int	main(int ac, char **av)
 		ft_handel_exit(data, ERR_UNKNOWN);
 	if (!ft_draw_fractol(data))
 		ft_handel_exit(data, ERR_UNKNOWN);
-	// init data using the selected fractol
 	return (0);
 }
 
 t_fractol ft_get_selected(char *name)
 {
-  if (ft_strncmp(ft_strlowcase(name), "julia", 6))
+  if (ft_strncmp(ft_strlowcase(name), "julia", 6) == 0)
     return (F_JULIA);
-  if (ft_strncmp(ft_strlowcase(name), "mandelbrot", 11))
+  if (ft_strncmp(ft_strlowcase(name), "mandelbrot", 11) == 0)
     return (F_MANDELBROT);
   return (NO_SELECT);
 }
