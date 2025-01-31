@@ -27,7 +27,8 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			 ft_get_next_line.c \
 			 ft_is_str_chars_same.c \
 			 ft_strndup.c \
-			 ft_malloc.c
+			 ft_malloc.c \
+			 ft_errno.c
 
 OBJS	= $(SRCS:.c=.o)
 

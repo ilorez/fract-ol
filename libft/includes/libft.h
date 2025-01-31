@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:06:37 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/11 17:41:07 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/01/31 11:49:27 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "t_bool.h"
 # include "ft_linked_lst.h"
 # include "ft_malloc.h"
+# include "t_errno.h"
 
 // memory functions
 void		*ft_memset(void *b, int c, size_t len);
