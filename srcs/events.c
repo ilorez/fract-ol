@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:12:32 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:50:59 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,24 @@ int ft_handle_mouse_click(int key, int x, int y, t_data *data)
       data->center->x = x + (data->center->x - x) * 1.1;
       data->center->y = y + (data->center->y - y) * 1.1;
       data->zoom *= data->zoom_inc;
+      if (data->zoom > ZOOM_MAX)
+        data->zoom = ZOOM_MAX;
     }
     else if (key == ZOOM_OUT)
     {
       data->center->x = x + (data->center->x - x) / 1.1;
       data->center->y = y + (data->center->y - y) / 1.1;
       data->zoom /= data->zoom_inc;
+      if (data->zoom < ZOOM_MIN)
+        data->zoom = ZOOM_MIN;
     }
-
+    else 
+      return (0);
     ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
     if (!ft_draw_fractol(data))
         ft_handle_window_exit(data, ERR_UNKNOWN);
+
+    mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
     return 0;
 }
 
@@ -56,6 +63,8 @@ int ft_key_hook(int keycode, t_data *data)
         data->center->x -= 5;
     else if (keycode == KEY_ESC) // ESC 65307
         ft_handle_window_exit(data, ERR_SUCCESS);
+    else
+        return 0;
     ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
     if (!ft_draw_fractol(data))
         ft_handle_window_exit(data, ERR_UNKNOWN);

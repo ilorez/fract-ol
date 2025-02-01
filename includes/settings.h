@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:15:37 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:51:41 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#define WIDTH 500
-#define HEIGHT 500
-#define ZOOM_INCREMENT 1.3
+#define WIDTH 400
+#define HEIGHT 400
+#define ZOOM_INCREMENT 1.1
+#define ZOOM_MIN 0.000001
+#define ZOOM_MAX 10000
 
 // keys enums
 typedef enum s_keys
