@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 16:53:03 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:25:01 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ t_bool ft_is_escape(double x, double y)
 
 int ft_get_color(int iterations)
 {
-  return 0xFFFFFFFF + 0 * iterations;
+  return (0x00FF00FF+100*iterations);
 }
 
-int ft_calculate_color(double x, double yi)
+int ft_calculate_color(double x, double yi, double zoom)
 {
   t_mdb_equation Z;
-  int max_itr = 10;
+  int max_itr = 15 * zoom;
 
 
   Z.itr = 0;
@@ -110,6 +110,8 @@ void draw_mandelbrot(t_data *data)
 
   x = 0;
   y = 0;
+  data->cor->x = 0;
+  data->cor->y = 0;
   printf("%f\n", data->zoom);
   while (data->cor->x < WIDTH)
   {
@@ -118,7 +120,7 @@ void draw_mandelbrot(t_data *data)
     while(++data->cor->y < HEIGHT)
     {
       y = (data->cor->y - data->center->y) / (100 * data->zoom);
-      color = ft_calculate_color(x, y);
+      color = ft_calculate_color(x, y, data->zoom);
       ft_put_pixel(data->img_data, data->cor, color);
     }
     data->cor->x++;

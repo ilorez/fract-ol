@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 16:50:59 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:25:54 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int ft_handle_mouse_click(int key, int x, int y, t_data *data)
     ft_bzero(data->img_data->addr, WIDTH * HEIGHT * data->img_data->bpp / 8);
     if (!ft_draw_fractol(data))
         ft_handle_window_exit(data, ERR_UNKNOWN);
-
-    mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
     return 0;
 }
 
