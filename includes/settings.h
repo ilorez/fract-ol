@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 18:53:08 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/01 11:15:37 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 
 #define WIDTH 500
 #define HEIGHT 500
-#define ZOOM_INCREMENT 500
+#define ZOOM_INCREMENT 1.3
 
 // keys enums
-typedef enum s_moves
+typedef enum s_keys
 {
+  KEY_LEFT = 65361,
   KEY_UP,
-  KEY_DOWN,
-  KEY_LEFT,
   KEY_RIGHT,
-  ZOOM_IN, 
-  ZOOM_OUT
-} t_moves;
+  KEY_DOWN,
+  ZOOM_IN = 4, 
+  ZOOM_OUT,
+  KEY_ESC = 65307
+} t_keys;
 
 #endif
 
