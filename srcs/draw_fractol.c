@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 21:48:12 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:49:03 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ft_next_itr(t_mdb_equation *Z)
 
 t_bool ft_is_escape(double x, double y)
 {
-  return !(x <= 2 && x >= -2 && y <= 2 && y >= -2);
+  return !(x + y <= 4);
 }
 
 int ft_get_color(int iterations)
