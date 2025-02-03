@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:32:00 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 19:08:39 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:13:36 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_data	*ft_init_data(t_data *data,t_fractol selected)
   data->center->x = WIDTH / 2;
   data->center->y = HEIGHT / 2;
   data->errno = ERR_SUCCESS;
+  data->itr = DEFAULT_ITERATIONS;
   return (data);
 }
 

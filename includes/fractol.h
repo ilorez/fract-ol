@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 11:09:23 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:26:18 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_data
 	void		*win;
 	double		zoom;
 	double		zoom_inc;
+  int itr;
 	t_fractol	fractol;
 	t_cor		*center;
 	t_img_data	*img_data;

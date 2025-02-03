@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 10:58:19 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:12:58 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ t_bool ft_draw_fractol(t_data *data)
 
 typedef struct s_mdb_equation
 {
-  int itr;
-  double zx;
-  double zy;
   double x;
   double y;
+  int itr;
 } t_mdb_equation; 
 
 // z = z^2 + c
@@ -64,47 +62,22 @@ typedef struct s_mdb_equation
 // zx = real part in Z => (x^2 - y^2)
 // zy = imaginary part in Z => 2xyi
 
-void ft_next_itr(t_mdb_equation *Z)
-{
-  double tmpzx;
-  tmpzx = (Z->zx*Z->zx - Z->zy*Z->zy) + Z->x;
-  Z->zy = 2*Z->zx*Z->zy + Z->y;
-  Z->zx = tmpzx;
-  Z->itr++;
-}
-
-t_bool ft_is_escape(double x, double y)
-{
-  return !(x*x + y*y < 4);
-}
-
-int ft_get_color(int iterations)
-{
-
-  return (0x00FF0000+10*iterations);
-}
-
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
-{
-    return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
-}
-
-int ft_calculate_color(double x, double yi, double zoom)
+int ft_calculate_color(t_data *data, double x, double y)
 {
   t_mdb_equation Z;
-  int max_itr = 42;
+  double tmpzx;
 
-  Z.itr = 0 * zoom;
-  Z.zx = 0;
-  Z.zy = 0;
-  Z.x = x;
-  Z.y = yi;
-
-  while (max_itr--)
+  Z.x = 0;
+  Z.y = 0;
+  Z.itr = 0;
+  while (Z.itr < data->itr)
   {
-    ft_next_itr(&Z);
-    if(ft_is_escape(Z.zx, Z.zy))
-      return (map(Z.itr, BLACK, WHITE, 0, 500));
+    tmpzx = (Z.x*Z.x - Z.y*Z.y) + x;
+    Z.y = 2*Z.x*Z.y + y;
+    Z.x = tmpzx;
+    if(Z.x*Z.x + Z.y*Z.y > 4)// is escape
+      return ((WHITE - BLACK) * Z.itr / DEFAULT_ITERATIONS + BLACK);
+    Z.itr++;
   }
   return (0x00000000);
 }
@@ -124,14 +97,11 @@ void draw_mandelbrot(t_data *data)
   while (data->cor->x < WIDTH)
   {
     data->cor->y = -1;
-    //x = (data->cor->x - data->center->x) / (100 * data->zoom);
-    x = (map(data->cor->x, -2, +2, 0, WIDTH) * data->zoom);
+    x = (data->cor->x - data->center->x) / (100 * data->zoom);
     while(++data->cor->y < HEIGHT)
     {
-
-	    y = (map(data->cor->y, +2, -2, 0, HEIGHT) * data->zoom);
-      //y = (data->cor->y - data->center->y) / (100 * data->zoom);
-      color = ft_calculate_color(x, y, data->zoom);
+      y = (data->cor->y - data->center->y) / (100 * data->zoom);
+      color = ft_calculate_color(data, x, y);
       ft_put_pixel(data->img_data, data->cor, color);
     }
     data->cor->x++;
