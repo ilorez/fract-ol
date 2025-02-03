@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 16:47:36 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:35:19 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 	if (ac < 2 || !av[1][0])
 		ft_print_syntax_usage(av[0]);
 	selected = ft_get_selected(av[1]);
+  if ((selected == F_JULIA && ac != 4) || (selected != F_JULIA && ac != 2))
+		ft_print_syntax_usage(av[0]);
   if (!selected)
 		ft_print_syntax_usage(av[0]);
 	data = ft_init_data(data, selected);
