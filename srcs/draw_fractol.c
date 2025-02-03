@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/02 16:53:49 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:58:19 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ typedef struct s_mdb_equation
 
 void ft_next_itr(t_mdb_equation *Z)
 {
-  Z->zx = Z->zx*Z->zx - Z->zy*Z->zy + Z->x;
+  double tmpzx;
+  tmpzx = (Z->zx*Z->zx - Z->zy*Z->zy) + Z->x;
   Z->zy = 2*Z->zx*Z->zy + Z->y;
+  Z->zx = tmpzx;
   Z->itr++;
 }
 
@@ -78,13 +80,19 @@ t_bool ft_is_escape(double x, double y)
 
 int ft_get_color(int iterations)
 {
+
   return (0x00FF0000+10*iterations);
+}
+
+double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
+{
+    return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
 }
 
 int ft_calculate_color(double x, double yi, double zoom)
 {
   t_mdb_equation Z;
-  int max_itr = 500;
+  int max_itr = 42;
 
   Z.itr = 0 * zoom;
   Z.zx = 0;
@@ -92,13 +100,11 @@ int ft_calculate_color(double x, double yi, double zoom)
   Z.x = x;
   Z.y = yi;
 
-  if(ft_is_escape(Z.x, Z.y))
-      return (ft_get_color(Z.itr));
   while (max_itr--)
   {
     ft_next_itr(&Z);
     if(ft_is_escape(Z.zx, Z.zy))
-      return (ft_get_color(Z.itr));
+      return (map(Z.itr, BLACK, WHITE, 0, 500));
   }
   return (0x00000000);
 }
@@ -118,10 +124,13 @@ void draw_mandelbrot(t_data *data)
   while (data->cor->x < WIDTH)
   {
     data->cor->y = -1;
-    x = (data->cor->x - data->center->x) / (100 * data->zoom);
+    //x = (data->cor->x - data->center->x) / (100 * data->zoom);
+    x = (map(data->cor->x, -2, +2, 0, WIDTH) * data->zoom);
     while(++data->cor->y < HEIGHT)
     {
-      y = (data->cor->y - data->center->y) / (100 * data->zoom);
+
+	    y = (map(data->cor->y, +2, -2, 0, HEIGHT) * data->zoom);
+      //y = (data->cor->y - data->center->y) / (100 * data->zoom);
       color = ft_calculate_color(x, y, data->zoom);
       ft_put_pixel(data->img_data, data->cor, color);
     }
