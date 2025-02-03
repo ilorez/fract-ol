@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 16:48:23 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:20:57 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,21 @@ typedef struct s_img_data
 	int			endian;
 }				t_img_data;
 
+typedef struct s_mdb_equation
+{
+  double x;
+  double y;
+  int itr;
+} t_mdb_equation; 
+
 typedef struct s_data
 {
 	void		*mlx;
 	void		*win;
 	double		zoom;
 	double		zoom_inc;
+  double setx;
+  double sety;
   int itr;
 	t_fractol	fractol;
 	t_cor		*center;
@@ -61,21 +70,13 @@ typedef struct s_data
 	t_errno		errno;
 }				t_data;
 
-typedef struct s_mdb_equation
-{
-  double x;
-  double y;
-  int itr;
-} t_mdb_equation; 
-
-
 // functions
 
 // fractol 
 t_fractol ft_get_selected(char *name);
 
 // init data
-t_data	*ft_init_data(t_data *data,t_fractol selected);
+t_data	*ft_init_data(t_data *data,t_fractol selected, char **av);
 t_data *ft_allocate_data(t_data *data);
 
 // print syntax error

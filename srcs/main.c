@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 18:35:19 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:45:56 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		ft_print_syntax_usage(av[0]);
   if (!selected)
 		ft_print_syntax_usage(av[0]);
-	data = ft_init_data(data, selected);
+	data = ft_init_data(data, selected, av);
 	if (!data)
 		ft_exit_error("Error Malloc", ERR_MALLOC_FAIL);
 	if (!ft_create_mlx_window(data))
