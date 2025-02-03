@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:22:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 15:24:13 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:47:34 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_bool ft_draw_fractol(t_data *data)
     ft_walk(data, &ft_mandelbrot);
   else if (data->fractol == F_JULIA)
     ft_walk(data, &ft_julia);
+  else if (data->fractol == F_BURNING_SHIP)
+    ft_walk(data, &ft_burning_ship);
   mlx_put_image_to_window(data->mlx, data->win, data->img_data->img, 0, 0);
   return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:21:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 15:25:42 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:47:37 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,9 @@ void ft_walk(t_data *data, int (*fun)(t_data *, double, double))
   }
 }
 
+double ft_abs(double x)
+{
+  if (x < 0)
+    return (x * -1);
+  return (x);
+}

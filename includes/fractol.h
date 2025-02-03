@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 15:25:57 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:48:23 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ typedef enum s_fractol
 {
   NO_SELECT = 0,
 	F_JULIA,
-	F_MANDELBROT
+	F_MANDELBROT,
+	F_BURNING_SHIP
 }				t_fractol;
 
 // structs
@@ -103,11 +104,13 @@ t_bool ft_draw_fractol(t_data *data);
 // fractols
 int ft_julia(t_data *data, double x, double y);
 int ft_mandelbrot(t_data *data, double x, double y);
+int ft_burning_ship(t_data *data, double x, double y);
 int ft_degree_color(int itr);
 
 // utils
 // ft_walk function is a function that go in all pixel in scree and send to fun() 
 // fun() return a color that curent pixel in loop should colored with
 void ft_walk(t_data *data, int (*fun)(t_data *, double, double));
+double ft_abs(double x);
 
 #endif

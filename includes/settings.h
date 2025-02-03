@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 14:37:52 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:00:37 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#define WIDTH 400
-#define HEIGHT 400
+#define WIDTH 1000
+#define HEIGHT 1000
 #define ZOOM_INCREMENT 1.3
 #define ZOOM_MIN 1
-#define ZOOM_MAX 18000000 
+#define ZOOM_MAX 1800000000 
 #define DEFAULT_ITERATIONS 42
-#define MAX_ITERATIONS 421337
-#define END_COLOR  0x00FF00  
-#define START_COLOR  0x0055FF
+#define MAX_ITERATIONS 42133700
+#define END_COLOR  0xFFFFFF  
+#define START_COLOR  0x000000
 #define BLACK 0x000000
 
 // keys enums

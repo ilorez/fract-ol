@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 15:41:18 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/01 16:38:34 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:47:36 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ t_fractol ft_get_selected(char *name)
     return (F_JULIA);
   if (ft_strncmp(ft_strlowcase(name), "mandelbrot", 11) == 0)
     return (F_MANDELBROT);
+  if (ft_strncmp(ft_strlowcase(name), "burning_ship", 13) == 0)
+    return (F_BURNING_SHIP);
+    
   return (NO_SELECT);
 }
