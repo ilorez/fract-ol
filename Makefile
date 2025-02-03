@@ -6,7 +6,7 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/01/31 19:08:20 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/02/03 15:29:17 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,11 @@ INCLUDES_DRS = -I./includes -I./libft/includes
 CC = cc
 RM = rm -f
 
-SRCS= fractol.c init_data.c on_errors.c print_syntax_usage.c draw_fractol.c create_window.c events.c utils.c rewrite_mlx.c 
+SRCS= main.c init_data.c \
+			on_errors.c print_syntax_usage.c \
+			draw_fractol.c create_window.c \
+			events.c utils.c rewrite_mlx.c \
+			fractol_equations.c 
 OBJS = $(addprefix $(BUILD_DR),$(SRCS:%.c=%.o))
 green = \033[32m
 reset = \033[0m
@@ -33,7 +37,7 @@ all: $(NAME)
 $(BUILD_DR)%.o: %.c | $(BUILD_DR)
 	$(CC) $(FLAGS) $(INCLUDES_DRS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS) ./includes/settings.h ./includes/fractol.h
 	make -C $(LIBFT_DR)
 	$(CC) $(FLAGS) $(OBJS) $(INCLUDES_DRS) $(LIBFT_DR)/libft.a  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz  -o $(NAME)
 

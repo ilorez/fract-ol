@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 11:26:18 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:25:57 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,14 @@ typedef struct s_data
 	t_errno		errno;
 }				t_data;
 
+typedef struct s_mdb_equation
+{
+  double x;
+  double y;
+  int itr;
+} t_mdb_equation; 
+
+
 // functions
 
 // fractol 
@@ -91,5 +99,15 @@ t_bool ft_create_mlx_window(t_data *data);
 
 // draw fractol
 t_bool ft_draw_fractol(t_data *data);
+
+// fractols
+int ft_julia(t_data *data, double x, double y);
+int ft_mandelbrot(t_data *data, double x, double y);
+int ft_degree_color(int itr);
+
+// utils
+// ft_walk function is a function that go in all pixel in scree and send to fun() 
+// fun() return a color that curent pixel in loop should colored with
+void ft_walk(t_data *data, int (*fun)(t_data *, double, double));
 
 #endif

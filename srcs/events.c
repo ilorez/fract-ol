@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 12:23:41 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:20:36 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,15 @@ int ft_handle_mouse_click(int key, int x, int y, t_data *data)
 // okay no thing checked here 
 int ft_key_hook(int keycode, t_data *data)
 {
-    ft_printf("key: %d\n", keycode);
-    if (keycode == KEY_UP) // w
+    if (keycode == KEY_UP)
         data->center->y += 5;
-    else if (keycode == KEY_LEFT) // a
+    else if (keycode == KEY_LEFT)
         data->center->x += 5;
-    else if (keycode == KEY_DOWN) // s
+    else if (keycode == KEY_DOWN)
         data->center->y -= 5;
-    else if (keycode == KEY_RIGHT) // d
+    else if (keycode == KEY_RIGHT)
         data->center->x -= 5;
-    else if (keycode == KEY_ESC) // ESC 65307
+    else if (keycode == KEY_ESC)
         ft_handle_window_exit(data, ERR_SUCCESS);
     else
         return 0;
