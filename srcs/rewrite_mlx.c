@@ -17,7 +17,7 @@ char	*ft_mlx_get_data_addr(t_img_data *d)
 	return (mlx_get_data_addr(d->img, &d->bpp, &d->ll, &d->endian));
 }
 
-void	ft_put_pixel(t_img_data *data, t_cor *cor,int color)
+void	ft_put_pixel(t_img_data *data, t_cor *cor, int color)
 {
 	char	*dst;
 

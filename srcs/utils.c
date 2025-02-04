@@ -12,29 +12,29 @@
 
 #include "fractol.h"
 
-void ft_walk(t_data *data, int (*fun)(t_data *, double, double))
+void	ft_walk(t_data *data, int (*fun)(t_data *, double, double))
 {
-  double x;
-  double y;
+	double	x;
+	double	y;
 
-  data->cor->x = 0;
-  data->cor->y = 0;
-  while (data->cor->x < WIDTH)
-  {
-    data->cor->y = -1;
-    x = (data->cor->x - data->center->x) / (100 * data->zoom);
-    while(++data->cor->y < HEIGHT)
-    {
-      y = (data->cor->y - data->center->y) / (100 * data->zoom);
-      ft_put_pixel(data->img_data, data->cor, fun(data, x, y));
-    }
-    data->cor->x++;
-  }
+	data->cor->x = 0;
+	data->cor->y = 0;
+	while (data->cor->x < WIDTH)
+	{
+		data->cor->y = -1;
+		x = (data->cor->x - data->center->x) / (100 * data->zoom);
+		while (++data->cor->y < HEIGHT)
+		{
+			y = (data->cor->y - data->center->y) / (100 * data->zoom);
+			ft_put_pixel(data->img_data, data->cor, fun(data, x, y));
+		}
+		data->cor->x++;
+	}
 }
 
-double ft_abs(double x)
+double	ft_abs(double x)
 {
-  if (x < 0)
-    return (x * -1);
-  return (x);
+	if (x < 0)
+		return (x * -1);
+	return (x);
 }
