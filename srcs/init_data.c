@@ -6,59 +6,65 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:32:00 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/04 09:23:54 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:36:32 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static int	_ft_isspace(int c)
-{
-	if (c == 32 || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
-}
-
 #include "stdio.h"
-double ft_strtod(const char *nptr)
+
+double ft_strtod(const char *nptr, char **endptr)
 {
-	size_t				i;
-	long int				div;
+	unsigned long long				div;
 	int					signe;
 	double	re;
 
-	i = 0;
 	signe = 1;
   div = 10;
 	re = 0.0;
-	while (_ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		if (nptr[i++] == '-')
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+		if (*nptr++ == '-')
 			signe = -1;
-	while (ft_isdigit(nptr[i]))
-		re = re * 10 + (nptr[i++] - 48);
-  if (nptr[i] == '.')
-    i++;
-	while (ft_isdigit(nptr[i]))
+	while (ft_isdigit(*nptr))
+		re = re * 10 + (*nptr++ - 48);
+  if (*nptr == '.')
+    nptr++;
+	while (ft_isdigit(*nptr))
   {
-		re += (double)(nptr[i++] - 48)/div;
+		re += (double)(*nptr++ - 48)/div;
+    if (div * 10 > LLONG_MAX)
+      break;
     div *= 10;
   }
+  if (*nptr)
+    *endptr = (char *)nptr;
 	return (re * signe);
 }
 
 t_data	*ft_init_data(t_data *data,t_fractol selected, char **av)
 {
+  char *is_anyleft;
+
   data = ft_allocate_data(data);
   if (!data)
     return (NULL);
-  data->fractol = selected;
   if (selected == F_JULIA)
   {
-    data->setx = ft_strtod(av[2]); // TODO
-    data->sety = ft_strtod(av[3]);
+    is_anyleft = NULL;
+    data->setx = ft_strtod(av[2], &is_anyleft); // TODO
+    // if data->setx > choose a number return error number so big
+    //
+    printf("setx=>%lf\n", data->setx);
+    if (is_anyleft)
+    {
+      //ft_free_data(data); // TODO
+      ft_exit_error("Error", ERR_INVALID_ARG);
+    }
+    data->sety = 0.008;
   }
+  data->fractol = selected;
   data->zoom = 1;
   data->zoom_inc = ZOOM_INCREMENT;
   data->center->x = WIDTH / 2;

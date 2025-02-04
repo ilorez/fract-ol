@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:23:04 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 18:45:25 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:50:41 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int ft_julia(t_data *data, double x, double y)
   {
     if(Z.x*Z.x + Z.y*Z.y > 4)
       return (ft_degree_color(Z.itr));
-    tmpzx = (Z.x*Z.x - Z.y*Z.y) + data->setx; //data->set->x;
+    tmpzx = (Z.x*Z.x - Z.y*Z.y) + data->setx;
     Z.y = 2*Z.x*Z.y + data->sety;
     Z.x = tmpzx;
   }
@@ -67,7 +67,7 @@ int ft_burning_ship(t_data *data, double x, double y)
   {
     if(Z.x*Z.x + Z.y*Z.y > 4)
       return (ft_degree_color(Z.itr));
-    tmpzx = (Z.x*Z.x - Z.y*Z.y) + x; //data->set->x;
+    tmpzx = (Z.x*Z.x - Z.y*Z.y) + x;
     Z.y = ft_abs(2*Z.x*Z.y) + y;
     Z.x = tmpzx;
   }
