@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/05 11:33:04 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:31:06 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_destroy_event(t_data *data)
 
 int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 {
-  ft_printf("key: %d\n", key);
 	if (key == KEY_ITR_INC)
     data->itr += 10;
   else if (key == KEY_ITR_DEC)
@@ -33,7 +32,6 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 		data->center->x = x + (data->center->x - x) * data->zoom_inc;
 		data->center->y = y + (data->center->y - y) * data->zoom_inc;
 		data->zoom *= data->zoom_inc;
-    printf("zoom=>%.100f\n", data->zoom);
 	}
 	else if (key == ZOOM_OUT)
 	{
