@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:24:20 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/03 15:52:33 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:26:24 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	ft_put_pixel(t_img_data *data, t_cor *cor, int color)
 {
 	char	*dst;
 
-	dst = data->addr + cor->y * data->ll + cor->x * (data->bpp / 8);
+	dst = data->addr + (int)(cor->y * data->ll + cor->x * (data->bpp / 8));
 	*(unsigned int *)dst = color;
 }

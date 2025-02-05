@@ -6,11 +6,12 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/04 13:53:56 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:33:04 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "stdio.h"
 
 int	ft_destroy_event(t_data *data)
 {
@@ -20,22 +21,25 @@ int	ft_destroy_event(t_data *data)
 
 int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 {
-	if (key == ZOOM_IN)
+  ft_printf("key: %d\n", key);
+	if (key == KEY_ITR_INC)
+    data->itr += 10;
+  else if (key == KEY_ITR_DEC)
+    data->itr -= 10;
+  else if (key == ZOOM_IN)
 	{
 		if (data->zoom * data->zoom_inc > ZOOM_MAX)
 			return (0);
-		data->itr = DEFAULT_ITERATIONS + data->zoom;
-		if (data->itr > MAX_ITERATIONS)
-			data->itr = MAX_ITERATIONS;
 		data->center->x = x + (data->center->x - x) * data->zoom_inc;
 		data->center->y = y + (data->center->y - y) * data->zoom_inc;
 		data->zoom *= data->zoom_inc;
+    printf("zoom=>%.100f\n", data->zoom);
 	}
 	else if (key == ZOOM_OUT)
 	{
-		data->itr = DEFAULT_ITERATIONS + data->zoom;
-		if (data->itr > MAX_ITERATIONS)
-			data->itr = MAX_ITERATIONS;
+
+		if (data->zoom / data->zoom_inc < ZOOM_MIN)
+			return (0);
 		data->center->x = x + (data->center->x - x) / data->zoom_inc;
 		data->center->y = y + (data->center->y - y) / data->zoom_inc;
 		data->zoom /= data->zoom_inc;
@@ -50,13 +54,13 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 int	ft_key_hook(int keycode, t_data *data)
 {
 	if (keycode == KEY_UP)
-		data->center->y += 5;
+		data->center->y += MOVE_STEP_SIZE;
 	else if (keycode == KEY_LEFT)
-		data->center->x += 5;
+		data->center->x += MOVE_STEP_SIZE;
 	else if (keycode == KEY_DOWN)
-		data->center->y -= 5;
+		data->center->y -= MOVE_STEP_SIZE;
 	else if (keycode == KEY_RIGHT)
-		data->center->x -= 5;
+		data->center->x -= MOVE_STEP_SIZE;
 	else if (keycode == KEY_ESC)
 		ft_handle_window_exit(data, ERR_SUCCESS);
 	else

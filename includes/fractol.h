@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/04 13:41:20 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:21:22 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef enum s_fractol
 
 typedef struct s_cor
 {
-	int			x;
-	int			y;
+	double			x;
+	double			y;
 }				t_cor;
 
 typedef struct s_img_data
