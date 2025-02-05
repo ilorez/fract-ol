@@ -22,10 +22,10 @@ int	ft_destroy_event(t_data *data)
 int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 {
 	if (key == KEY_ITR_INC)
-    data->itr += 10;
-  else if (key == KEY_ITR_DEC)
-    data->itr -= 10;
-  else if (key == ZOOM_IN)
+		data->itr += 10;
+	else if (key == KEY_ITR_DEC)
+		data->itr -= 10;
+	else if (key == ZOOM_IN)
 	{
 		if (data->zoom * data->zoom_inc > ZOOM_MAX)
 			return (0);
@@ -35,7 +35,6 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 	}
 	else if (key == ZOOM_OUT)
 	{
-
 		if (data->zoom / data->zoom_inc < ZOOM_MIN)
 			return (0);
 		data->center->x = x + (data->center->x - x) / data->zoom_inc;

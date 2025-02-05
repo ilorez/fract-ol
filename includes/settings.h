@@ -32,8 +32,8 @@ typedef enum s_keys
 	KEY_UP,
 	KEY_RIGHT,
 	KEY_DOWN,
-  KEY_ITR_INC = 1,
-  KEY_ITR_DEC = 3,
+	KEY_ITR_INC = 1,
+	KEY_ITR_DEC = 3,
 	ZOOM_IN,
 	ZOOM_OUT,
 	KEY_ESC = 65307
