@@ -6,41 +6,11 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:32:00 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/04 13:40:29 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:35:58 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-double	ft_strtod(const char *nptr, char **endptr)
-{
-	unsigned long long	div;
-	int					signe;
-	double				re;
-
-	signe = 1;
-	div = 10;
-	re = 0.0;
-	while (ft_isspace(*nptr))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-		if (*nptr++ == '-')
-			signe = -1;
-	while (ft_isdigit(*nptr))
-		re = re * 10 + (*nptr++ - 48);
-	if (*nptr == '.')
-		nptr++;
-	while (ft_isdigit(*nptr))
-	{
-		re += (double)(*nptr++ - 48) / div;
-		if (div * 10 > LLONG_MAX)
-			break ;
-		div *= 10;
-	}
-	if (*nptr)
-		*endptr = (char *)nptr;
-	return (re * signe);
-}
 
 t_data	*ft_init_data(t_data *data, t_fractol selected, char **av)
 {

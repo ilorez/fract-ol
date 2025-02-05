@@ -1,7 +1,7 @@
 
 NAME = libft.a
 INCLUDE_DR = ./includes
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DR)  -g3
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_DR)
 CC = cc
 LIBC = ar -rcs
 RM = rm -f
@@ -29,7 +29,8 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			 ft_strndup.c \
 			 ft_malloc.c \
 			 ft_errno.c \
-			 ft_strlowcase.c ft_strupcase.c
+			 ft_strlowcase.c ft_strupcase.c \
+			 ft_strtod.c
 
 OBJS	= $(SRCS:.c=.o)
 

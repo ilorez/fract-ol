@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:06:37 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 17:26:08 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:29:48 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,15 @@ int			ft_isprint(int c);
 int			ft_isspace(int c);
 int			ft_is_str_chars_same(char *str, char c);
 
-// to functions
-int			ft_toupper(int c);
-int			ft_tolower(int c);
-
 // atoi & itoa functions
 int			ft_atoi(const char *nptr);
 long long	ft_atol(const char *nptr);
 char		*ft_itoa(int n);
+double		ft_strtod(const char *nptr, char **endptr);
+
+// to functions
+int			ft_toupper(int c);
+int			ft_tolower(int c);
 
 // put functions
 void		ft_putchar_fd(char c, int fd);
