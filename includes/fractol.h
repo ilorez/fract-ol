@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/05 11:21:22 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:56:07 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void			ft_print_syntax_usage(char *program_name);
 void			ft_exit_error(char *msg, t_errno err);
 void			ft_handel_exit(t_data *data, t_errno err);
 void			ft_handle_window_exit(t_data *data, t_errno err);
+void			ft_free_data(t_data *data);
 
 // rewrite mlx fucntions
 char			*ft_mlx_get_data_addr(t_img_data *d);

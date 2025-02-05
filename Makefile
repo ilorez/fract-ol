@@ -6,7 +6,7 @@
 #    By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/19 11:40:47 by znajdaou          #+#    #+#              #
-#    Updated: 2025/02/03 15:29:17 by znajdaou         ###   ########.fr        #
+#    Updated: 2025/02/05 12:20:19 by znajdaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fractol
 
 LIBFT_DR = ./libft
 
-FLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g3 #
 INCLUDES_DRS = -I./includes -I./libft/includes 
 CC = cc
 RM = rm -f
@@ -39,7 +39,7 @@ $(BUILD_DR)%.o: %.c | $(BUILD_DR)
 
 $(NAME): $(OBJS) ./includes/settings.h ./includes/fractol.h
 	make -C $(LIBFT_DR)
-	$(CC) $(FLAGS) $(OBJS) $(INCLUDES_DRS) $(LIBFT_DR)/libft.a  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz  -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) $(INCLUDES_DRS) $(LIBFT_DR)/libft.a  -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm  -o $(NAME)
 
 $(BUILD_DR):
 	mkdir -p $@

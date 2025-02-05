@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:32:00 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/05 10:38:05 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:46:43 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ t_data	*ft_init_data(t_data *data, t_fractol selected, char **av)
 		is_anyleft = NULL;
 		data->setx = ft_strtod(av[2], &is_anyleft);
 		data->sety = ft_strtod(av[3], &is_anyleft);
-		if (data->setx > LLONG_MAX || is_anyleft )
+		if (data->sety > LLONG_MAX || data->setx > LLONG_MAX || is_anyleft)
 		{
-			// ft_free_data(data); // TODO
+			ft_free_data(data);
 			ft_exit_error("Error", ERR_INVALID_ARG);
 		}
 	}
