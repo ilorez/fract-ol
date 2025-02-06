@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/05 11:33:22 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:05:08 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define ZOOM_MAX 180000000000000000
 # define DEFAULT_ITERATIONS 42
 # define MAX_ITERATIONS 42133700
-# define END_COLOR 0xFFFFFF
-# define START_COLOR 0x000000
+# define START_COLOR 0x00FF00
+# define END_COLOR 0x000000
 # define INSIDE_COLOR 0x000000
 # define MOVE_STEP_SIZE 10
 

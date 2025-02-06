@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/05 11:56:07 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/06 09:59:20 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void			ft_put_pixel(t_img_data *data, t_cor *cor, int color);
 int				ft_destroy_event(t_data *data);
 int				ft_handle_mouse_click(int key, int x, int y, t_data *data);
 int				ft_key_hook(int keycode, t_data *data);
+int ft_loop_hook(t_data *data);
 
 // create window
 t_bool			ft_create_mlx_window(t_data *data);
