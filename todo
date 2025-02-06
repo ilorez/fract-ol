@@ -2,8 +2,14 @@
 - should work on sets now
 - zoom probleme
 - after that lets work on leaks
-after that let's optimize
-make color look more good
+- after that let's optimize
+- make color look more good
 understand what is the 1L in mlx_hook()
+learn: 
+  - mlx_destory*
+  - mlx_loop_hook
+
+test
+
 done
 
