@@ -34,8 +34,8 @@ typedef enum s_fractol
 
 typedef struct s_cor
 {
-	double			x;
-	double			y;
+	double		x;
+	double		y;
 }				t_cor;
 
 typedef struct s_img_data
@@ -96,7 +96,7 @@ void			ft_put_pixel(t_img_data *data, t_cor *cor, int color);
 int				ft_destroy_event(t_data *data);
 int				ft_handle_mouse_click(int key, int x, int y, t_data *data);
 int				ft_key_hook(int keycode, t_data *data);
-int ft_loop_hook(t_data *data);
+int				ft_loop_hook(t_data *data);
 
 // create window
 t_bool			ft_create_mlx_window(t_data *data);
@@ -111,7 +111,7 @@ int				ft_burning_ship(t_data *data, double x, double y);
 int				ft_degree_color(int itr);
 
 // utils
-// ft_walk function is a function that go in all pixel in scree 
+// ft_walk function is a function that go in all pixel in scree
 // and send to fun()
 // fun() return a color that curent pixel in loop should colored with
 void			ft_walk(t_data *data, int (*fun)(t_data *, double, double));

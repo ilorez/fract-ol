@@ -6,19 +6,18 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/06 10:00:42 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:41:36 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "stdio.h"
 
-int ft_loop_hook(t_data *data)
+int	ft_loop_hook(t_data *data)
 {
-  if (!data)
-    return (1);
+	if (!data)
+		return (1);
 	ft_draw_fractol(data);
-  return (0);
+	return (0);
 }
 
 int	ft_destroy_event(t_data *data)
@@ -54,7 +53,6 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 	return (0);
 }
 
-// okay no thing checked here
 int	ft_key_hook(int keycode, t_data *data)
 {
 	if (keycode == KEY_UP)
