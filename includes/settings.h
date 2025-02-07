@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 15:56:29 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:59:13 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define HEIGHT 500
 # define ZOOM_INCREMENT 1.1
 # define ZOOM_MIN 0.01
-# define ZOOM_MAX 180000000000000000
+# define ZOOM_MAX 1844674407370955161
 # define DEFAULT_ITERATIONS 42
 # define MAX_ITERATIONS 42133700
 # define START_COLOR 0xFFFFFF

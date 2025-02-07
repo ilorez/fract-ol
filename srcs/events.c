@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 15:43:13 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:52:03 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	ft_key_hook(int keycode, t_data *data)
 		ft_handle_window_exit(data, ERR_SUCCESS);
 	else if (keycode == KEY_PRINT_ITR)
 		ft_printf("current Iteration number is => %d\n", data->itr);
-	else if (keycode == KEY_PRINT_ZOOM)
-		ft_printf("current zoom level is ~= %d\n", (int)(data->zoom));
+	else if (keycode == KEY_PRINT_ZOOM && data->zoom < (double)ULLONG_MAX)
+		ft_printf("current zoom level is ~= %b\n", (unsigned int)(data->zoom));
 	ft_change_theme_color(keycode, data);
 	return (0);
 }

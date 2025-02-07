@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 19:24:13 by znajdaou          #+#    #+#             */
-/*   Updated: 2024/12/31 13:06:07 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:51:12 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ int	ft_print_unsigned_nbr(unsigned int n)
 	return (out_len);
 }
 
+int	ft_print_ull_nbr(unsigned long long n)
+{
+	int	out_len;
+
+	out_len = 0;
+	if (n >= 10)
+	{
+		out_len += ft_print_ull_nbr(n / 10);
+		out_len += ft_print_char(n % 10 + '0');
+	}
+	else
+		out_len += ft_print_char(n + '0');
+	return (out_len);
+}
+
 static int	ft_print_type(char type, va_list va)
 {
 	if (type == 'c')
@@ -37,6 +52,8 @@ static int	ft_print_type(char type, va_list va)
 		return (ft_print_nbr(va_arg(va, int)));
 	else if (type == 'u')
 		return (ft_print_unsigned_nbr(va_arg(va, unsigned int)));
+	else if (type == 'b')
+		return (ft_print_ull_nbr(va_arg(va, unsigned long long int)));
 	else if (type == 'x')
 		return (ft_print_hexa(va_arg(va, unsigned int), "0123456789abcdef"));
 	else if (type == 'X')
