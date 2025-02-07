@@ -6,16 +6,16 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 16:01:08 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 12:18:37 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:56:29 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SETTINGS_H
 # define SETTINGS_H
 
-# define WIDTH 800
-# define HEIGHT 800
-# define ZOOM_INCREMENT 1.2
+# define WIDTH 500
+# define HEIGHT 500
+# define ZOOM_INCREMENT 1.1
 # define ZOOM_MIN 0.01
 # define ZOOM_MAX 180000000000000000
 # define DEFAULT_ITERATIONS 42

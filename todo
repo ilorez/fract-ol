@@ -5,7 +5,7 @@
 - after that let's optimize
 - make color look more good
 - understand what is the 1L in mlx_hook()
-learn: 
+- learn: 
   - mlx_destory*
   - mlx_loop_hook
 
