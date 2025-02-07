@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 10:51:57 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/01/31 18:13:52 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:17:42 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	_ft_create_err_list(t_errno_msg lst[ERR_COUNT])
 	err_msgs[ERR_EMPTY_ARG] = (t_errno_msg){ERR_EMPTY_ARG, "Empty argumnet\n"};
 	err_msgs[ERR_MALLOC_FAIL] = (t_errno_msg){ERR_MALLOC_FAIL,
 		"an allocation failed\n"};
-	err_msgs[ERR_MLX_CONNECTION_FIELED] = (t_errno_msg){ERR_MLX_CONNECTION_FIELED,
+	err_msgs[ERR_MLX_CONNECTION_FIELED] = (t_errno_msg){
+		ERR_MLX_CONNECTION_FIELED,
 		"mlx connection fieled: something go wrong on mlx_init\n"};
 	err_msgs[ERR_UNKNOWN] = (t_errno_msg){ERR_UNKNOWN,
 		"Unknown error occurred\n"};

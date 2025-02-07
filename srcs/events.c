@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/06 11:41:36 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:21:08 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ft_destroy_event(t_data *data)
 int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 {
 	if (key == KEY_ITR_INC)
-		data->itr += 10;
+		data->itr += ITRATIONS_INC;
 	else if (key == KEY_ITR_DEC)
-		data->itr -= 10;
+		data->itr -= ITRATIONS_INC;
 	else if (key == ZOOM_IN)
 	{
 		if (data->zoom * data->zoom_inc > ZOOM_MAX)
@@ -48,9 +48,27 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 		data->center->y = y + (data->center->y - y) / data->zoom_inc;
 		data->zoom /= data->zoom_inc;
 	}
-	else
-		return (0);
 	return (0);
+}
+
+void	ft_change_theme_color(int k, t_data *data)
+{
+	if (k == KEY_0)
+		data->theme = TH_DEFAULT;
+	else if (k == KEY_1)
+		data->theme = TH_GRAY;
+	else if (k == KEY_2)
+		data->theme = TH_RED;
+	else if (k == KEY_3)
+		data->theme = TH_GREEN;
+	else if (k == KEY_4)
+		data->theme = TH_BLUE;
+	else if (k == KEY_5)
+		data->theme = TH_AQUA;
+	else if (k == KEY_6)
+		data->theme = TH_YELLOW;
+	else if (k == KEY_7)
+		data->theme = TH_PINK;
 }
 
 int	ft_key_hook(int keycode, t_data *data)
@@ -65,7 +83,10 @@ int	ft_key_hook(int keycode, t_data *data)
 		data->center->x -= MOVE_STEP_SIZE;
 	else if (keycode == KEY_ESC)
 		ft_handle_window_exit(data, ERR_SUCCESS);
-	else
-		return (0);
+	else if (keycode == KEY_PRINT_ITR)
+		ft_printf("current Iteration number is => %d\n", data->itr);
+	else if (keycode == KEY_PRINT_ZOOM)
+		ft_printf("current zoom level is ~= %d\n", (int)(data->zoom));
+	ft_change_theme_color(keycode, data);
 	return (0);
 }

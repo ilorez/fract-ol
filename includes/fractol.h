@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/06 09:59:20 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:14:17 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,19 @@ typedef enum s_fractol
 	F_BURNING_SHIP
 }				t_fractol;
 
-// structs
+typedef enum s_theme
+{
+	TH_DEFAULT = 0,
+	TH_GRAY,
+	TH_BLUE,
+	TH_GREEN,
+	TH_RED,
+	TH_AQUA,
+	TH_YELLOW,
+	TH_PINK
+}				t_theme;
 
+// structs
 typedef struct s_cor
 {
 	double		x;
@@ -63,6 +74,7 @@ typedef struct s_data
 	double		setx;
 	double		sety;
 	int			itr;
+	t_theme		theme;
 	t_fractol	fractol;
 	t_cor		*center;
 	t_img_data	*img_data;
@@ -108,7 +120,7 @@ t_bool			ft_draw_fractol(t_data *data);
 int				ft_julia(t_data *data, double x, double y);
 int				ft_mandelbrot(t_data *data, double x, double y);
 int				ft_burning_ship(t_data *data, double x, double y);
-int				ft_degree_color(int itr);
+int				ft_degree_color(t_data *data, int itr);
 
 // utils
 // ft_walk function is a function that go in all pixel in scree
@@ -116,5 +128,7 @@ int				ft_degree_color(int itr);
 // fun() return a color that curent pixel in loop should colored with
 void			ft_walk(t_data *data, int (*fun)(t_data *, double, double));
 double			ft_abs(double x);
+int				ft_create_trgb(int t, int r, int g, int b);
+int				ft_degree_color(t_data *data, int itr);
 
 #endif
