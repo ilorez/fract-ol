@@ -22,10 +22,10 @@ void	ft_walk(t_data *data, int (*fun)(t_data *, double, double))
 	while (data->cor->x < WIDTH)
 	{
 		data->cor->y = -1;
-		x = (data->cor->x - data->center->x) / ((WIDTH/4) * data->zoom);
+		x = (data->cor->x - data->center->x) / ((WIDTH / 4) * data->zoom);
 		while (++data->cor->y < HEIGHT)
 		{
-			y = (data->cor->y - data->center->y) / ((HEIGHT/4) * data->zoom);
+			y = (data->cor->y - data->center->y) / ((HEIGHT / 4) * data->zoom);
 			ft_put_pixel(data->img_data, data->cor, fun(data, x, y));
 		}
 		data->cor->x++;
