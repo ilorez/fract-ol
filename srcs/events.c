@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:44:16 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 12:21:08 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:32:12 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_handle_mouse_click(int key, int x, int y, t_data *data)
 		data->itr += ITRATIONS_INC;
 	else if (key == KEY_ITR_DEC)
 		data->itr -= ITRATIONS_INC;
+	else if (key == KEY_REZERO)
+		ft_rezero(data);
 	else if (key == ZOOM_IN)
 	{
 		if (data->zoom * data->zoom_inc > ZOOM_MAX)

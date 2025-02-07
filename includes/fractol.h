@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 11:51:23 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 12:14:17 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:30:41 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,6 @@ void			ft_walk(t_data *data, int (*fun)(t_data *, double, double));
 double			ft_abs(double x);
 int				ft_create_trgb(int t, int r, int g, int b);
 int				ft_degree_color(t_data *data, int itr);
+void			ft_rezero(t_data *data);
 
 #endif

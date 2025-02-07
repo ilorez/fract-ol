@@ -6,7 +6,7 @@
 /*   By: znajdaou <znajdaou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 18:21:45 by znajdaou          #+#    #+#             */
-/*   Updated: 2025/02/07 12:14:22 by znajdaou         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:30:46 by znajdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,13 @@ int	ft_degree_color(t_data *data, int itr)
 	else if (data->theme == TH_PINK)
 		return (ft_create_trgb(0, degree, 0, degree));
 	return ((END_COLOR - START_COLOR) * itr / DEFAULT_ITERATIONS + START_COLOR);
+}
+
+void	ft_rezero(t_data *data)
+{
+	data->zoom = 1;
+	data->center->x = WIDTH / 2;
+	data->center->y = HEIGHT / 2;
+	data->itr = DEFAULT_ITERATIONS;
+	data->theme = TH_DEFAULT;
 }
